@@ -17,7 +17,7 @@ function About() {
             <div className="col-lg-6 offset-lg-1">
               <div className="about-us-details">
                 <div className="section-title">
-                  <h6 className="subtitle">About The E-Banking</h6>
+                  <h6>About The E-Banking</h6>
                   <h2 className="title">
                     Everything is possible. We can help you achieve your goals!
                   </h2>
