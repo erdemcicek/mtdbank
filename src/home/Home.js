@@ -3,6 +3,7 @@ import "./Home.css";
 import Banner from "../banner/Banner.js";
 import About from "../about/About";
 import Product from '../product/Product';
+import Price from "../price/Price"
 import Gold from "../images/card/gold.jpg"
 import Silver from "../images/card/silver.jpg"
 import Platinum from "../images/card/platinum.jpg"
@@ -32,6 +33,11 @@ const Home = () => {
                 benefit="Get up to 5 supplementary cards for your family members. You don’t have to pay any additional fee and can choose the spending limit on each card."
                 image={Platinum}/>
 
+                
+
+            </div>
+            <div>
+                <Price/>
             </div>
         
          </div>
