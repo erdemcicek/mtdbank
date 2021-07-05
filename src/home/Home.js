@@ -7,6 +7,7 @@ import Price from "../price/Price"
 import Gold from "../images/card/gold.jpg"
 import Silver from "../images/card/silver.jpg"
 import Platinum from "../images/card/platinum.jpg"
+import Footer from "../footer/Footer"
 
 const Home = () => {
     return (
@@ -39,6 +40,7 @@ const Home = () => {
             <div>
                 <Price/>
             </div>
+            <Footer/>
         
          </div>
     )
