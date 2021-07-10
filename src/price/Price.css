@@ -117,6 +117,7 @@
     width: 10px;
     top: 0;
     left: 0;
+    z-index: 2;
   }
   .section-title .subtitle.subtitle-thumb:before {
     content: "";

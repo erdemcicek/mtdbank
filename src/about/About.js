@@ -6,7 +6,7 @@ import about2 from "../images/about2.png";
 
 function About() {
     return (
-      <div className="about-us-area pdt-50">
+      <div id="about" className="about-us-area pdt-50">
         <div className="container">
           <div className="row">
             <div className="col-lg-5 col-md-8 align-self-center">

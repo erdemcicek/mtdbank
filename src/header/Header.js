@@ -13,10 +13,14 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1
     },
     button:{
-        paddingLeft: "50px",
+        marginLeft: "40px",
         color: "white",
         fontSize: "15px",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        "&:hover": {
+            backgroundColor: "black",
+            color: "yellow"
+        }
 
     },
     logo: {
@@ -49,6 +53,30 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
     const classes = useStyles();
+    const showAboutUs = () => {
+        const elmnt = document.getElementById("about");
+        if (elmnt){
+            elmnt.scrollIntoView({behavior: "smooth"});
+        }
+    };
+    const showProduct = () => {
+        const elmnt = document.getElementById("product");
+        if (elmnt){
+            elmnt.scrollIntoView({behavior: "smooth"});
+        }
+    };
+    const showPackage = () => {
+        const elmnt = document.getElementById("package");
+        if (elmnt){
+            elmnt.scrollIntoView({behavior: "smooth"});
+        }
+    };
+    const showContactUs = () => {
+        const elmnt = document.getElementById("contactus");
+        if (elmnt){
+            elmnt.scrollIntoView({behavior: "smooth"});
+        }
+    };
     return (  <div className={classes.root}>
     <AppBar position="sticky">
         <Toolbar variant="dense">
@@ -56,10 +84,10 @@ const Header = () => {
             <img className={classes.logo} src={logo} alt="logo"/>
         </Link>
         <Typography variant="h6" >MTD Bank</Typography>
-        <Button className={classes.button}>About Us</Button>
-        <Button className={classes.button}>Product</Button>
-        <Button className={classes.button}>Package</Button>
-        <Button className={classes.button}>Contact Us</Button>
+        <Button className={classes.button} onClick={showAboutUs}>About Us</Button>
+        <Button className={classes.button} onClick={showProduct}>Product</Button>
+        <Button className={classes.button} onClick={showPackage}>Package</Button>
+        <Button className={classes.button} onClick={showContactUs}>Contact Us</Button>
         <div className={classes.spacer}></div>
         <Link to="/login" className={classes.headerLink}>
             <div className={classes.headerOption}>

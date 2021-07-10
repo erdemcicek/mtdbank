@@ -37,10 +37,8 @@ const Home = () => {
                 
 
             </div>
-            <div>
-                <Price/>
-            </div>
-            <Footer/>
+        
+            <Price/>
         
          </div>
     )
