@@ -4,6 +4,7 @@ import logo from "../images/logo.png";
 import "./Footer.css";
 import {Twitter, Facebook, LinkedIn, Pinterest, Copyright} from "@material-ui/icons";
 
+
 const Footer = () => {
     return (
         <div id="contactus">
@@ -124,4 +125,6 @@ const Footer = () => {
         </div>
     )
 }
+
+
 export default Footer
