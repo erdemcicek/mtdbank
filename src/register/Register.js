@@ -15,7 +15,6 @@ const initialValues = {
     confirmPassword: "",
 }
 
-
 const validationSchema = Yup.object().shape({
     firstName: Yup.string().required("Please provide first name"),
     lastName: Yup.string().required("Please provide last name"),
@@ -29,9 +28,12 @@ const validationSchema = Yup.object().shape({
 
 });
 
+
 const submitForm = (values, action)=> {
     
 };
+
+
 const RegistrationForm = (props) => (
     <div className="container">
         <fieldset>
