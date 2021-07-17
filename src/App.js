@@ -5,6 +5,7 @@ import ScrollToTop from 'react-scroll-to-top';
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import Register from './register/Register';
+import Login from "./login/Login";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     <div>
       <Header/>
       <Switch>
+        <Route path="/login" component={Login}></Route>
         <Route path="/register" component={Register}></Route>
         <Route path="/" component={Home}></Route>
       </Switch>
