@@ -7,12 +7,24 @@ import { useHistory } from "react-router";
 import "react-toastify/dist/ReactToastify.css";
 import * as Yup from "yup";
 import "./Login.css";
-
+import service from "../service/bankService"
 
 const LoginSchema = Yup.object().shape({
-  password: Yup.string().required("Required"),
-  username: Yup.string().required("Required"),
+  username: Yup.string().required("Username is mandatory!"),
+  password: Yup.string().required("Password is mandatory!"),
 });
+
+const submitForm = (values, action) => {
+  service.login(values)
+    .then((response) => {
+      if(response.status === 200){
+        const responseData = response.data;
+        localStorage.setItem("auth", responseData.jwt);
+      }
+    })
+      .catch();
+  action.setSubmitting(false);
+}
 
 const LoginForm = (props) => (
   <div className="container">

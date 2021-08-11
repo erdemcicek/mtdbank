@@ -3,13 +3,19 @@ import { Formik, Form, Field } from 'formik';
 import { Button, LinearProgress } from '@material-ui/core';
 import * as Yup from "yup";
 import { TextField } from 'formik-material-ui';
+import service from "../service/bankService";
+import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+// once you done let me know css for toast okay for the most part in first line itaself here itself one method 
+
+toast.configure();
 
 const initialValues = {
     firstName: "",
     lastName: "",
     dob: "",
     email: "",
-    userName: "",
+    username: "",
     role: ["user"],
     password: "",
     confirmPassword: "",
@@ -21,7 +27,7 @@ const validationSchema = Yup.object().shape({
     lastName: Yup.string().required("Please provide last name"),
     dob: Yup.string().required("Please provide your date of birth"),
     email: Yup.string().email("Please provide valid email address").required("Please provide the email address"),
-    userName: Yup.string().required("Please provide user name"),
+    username: Yup.string().required("Please provide user name"),
     password: Yup.string().required("Please provide the password"),
     confirmPassword: Yup.string().oneOf([
         [Yup.ref("password"), null], "Password should match"
@@ -30,6 +36,20 @@ const validationSchema = Yup.object().shape({
 });
 
 const submitForm = (values, action)=> {
+    service.register(values).then((response) => {
+        if(response.status === 200 && response.data.success){
+            toast.success(response.data.message, {
+                position: toast.POSITION.TOP_CENTER
+            })
+            action.resetForm();
+        } else {
+            toast.error(response.data.message, {
+                position: toast.POSITION.TOP_CENTER
+            });
+        }
+    }).catch((error) => {
+        console.log("Error", error)});
+    action.setSubmitting(false);
     
 };
 const RegistrationForm = (props) => (
@@ -77,7 +97,7 @@ const RegistrationForm = (props) => (
                     <div className="col-3 text-center p-3">
                         <Field 
                         component={TextField} 
-                        name="userName" 
+                        name="username" 
                         type="text" 
                         label="User Name">
 
