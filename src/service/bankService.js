@@ -1,5 +1,13 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "http://localhost:8090";
+
+function getToken(){
+  let auth = localStorage.getItem("auth");
+  if( auth ){
+    auth = JSON.parse(auth);
+  }
+  return auth ? `Bearer ${auth.token}` : "" ;
+}
 
 class BankService {
   register(userInfo) {
@@ -7,6 +15,25 @@ class BankService {
   }
   login(userInfo) {
     return axios.post(BASE_URL + "/auth/login", userInfo);
+  }
+  deposit(transactionInfo){
+    const axiosInstance = axios.create({
+      header: {
+        Authorization: getToken(),
+        "Content-Type": "application/json",
+      }
+    })
+    return axiosInstance.post(BASE_URL + "/account/deposit", transactionInfo);
+  }
+
+  withdraw(transactionInfo){
+    const axiosInstance = axios.create({
+      header: {
+        Authorization: getToken(),
+        "Content-Type": "application/json",
+      }
+    })
+    return axiosInstance.post(BASE_URL + "/account/deposit", transactionInfo);
   }
 }
 export default new BankService();

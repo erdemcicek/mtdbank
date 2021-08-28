@@ -17,9 +17,22 @@ const useStyles = makeStyles(styles);
 
 const AccountInfo = () => {
     const classes = useStyles();
+    const [{userInfo}] = useStateValue();
     return (
         <div>
-            
+            <GridContainer>
+                <GridItem xs={12} sm={12} md={6}>
+                    <Card color="success">
+                        <CardHeader>
+                            <CardIcon>
+                                <AccountBalance/>
+                            </CardIcon>
+                        </CardHeader>
+                        <p className={classes.cardCategory}>Account Number</p>
+                        <h3 className={classes.cardTitle}> {userInfo.user.accountNumber}</h3>
+                    </Card>
+                </GridItem>
+            </GridContainer>
         </div>
     )
 }
