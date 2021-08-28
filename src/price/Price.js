@@ -29,13 +29,13 @@ function Price() {
               </div>
               <ul className="pricing-list">
                 <li>
-                  <Link to={"/services"}>Minimum Deposit $1000</Link>
+                  <Link to={"/services"}>Minumum Deposit $1000</Link>
                 </li>
                 <li>
                   <Link to={"/services"}>Maximum Deposit $10000</Link>
                 </li>
                 <li>
-                  <Link to={"/services"}>Add up to 5 Users available</Link>
+                  <Link to={"/services"}>Add upto 5 Users</Link>
                 </li>
                 <li>
                   <Link to={"/services"}>Free Internet Banking</Link>
@@ -63,7 +63,7 @@ function Price() {
                   <Link to={"/services"}>Maximum Deposit $20000</Link>
                 </li>
                 <li>
-                  <Link to={"/services"}>Add up to 10 Users available</Link>
+                  <Link to={"/services"}>Add upto 10 Users</Link>
                 </li>
                 <li>
                   <Link to={"/services"}>Free Internet Banking</Link>
@@ -91,7 +91,7 @@ function Price() {
                   <Link to={"/services"}>Maximum Deposit $50000</Link>
                 </li>
                 <li>
-                  <Link to={"/services"}>Add up to 20 Users available</Link>
+                  <Link to={"/services"}>Add upto 20 Users</Link>
                 </li>
                 <li>
                   <Link to={"/services"}>Free Internet Banking</Link>
@@ -110,7 +110,4 @@ function Price() {
   );
 }
 
-
-
 export default Price;
-

@@ -2,29 +2,18 @@ import * as React from "react";
 import { Formik, Form, Field } from "formik";
 import { Button, LinearProgress } from "@material-ui/core";
 import { TextField } from "formik-material-ui";
+import service from "../service/bankService";
 import { ToastContainer, toast } from "react-toastify";
+import { useStateValue } from "../StateProvider";
 import { useHistory } from "react-router";
 import "react-toastify/dist/ReactToastify.css";
 import * as Yup from "yup";
-import "./Login.css";
-import service from "../service/bankService"
 
+toast.configure();
 const LoginSchema = Yup.object().shape({
-  username: Yup.string().required("Username is mandatory!"),
-  password: Yup.string().required("Password is mandatory!"),
+  password: Yup.string().required("Required"),
+  username: Yup.string().required("Required"),
 });
-
-const submitForm = (values, action) => {
-  service.login(values)
-    .then((response) => {
-      if(response.status === 200){
-        const responseData = response.data;
-        localStorage.setItem("auth", responseData.jwt);
-      }
-    })
-      .catch();
-  action.setSubmitting(false);
-}
 
 const LoginForm = (props) => (
   <div className="container">
@@ -49,6 +38,8 @@ const LoginForm = (props) => (
             />
             {props.isSubmitting && <LinearProgress />}
           </div>
+        </div>
+        <div className="row justify-content-start">
           <div className="col-lg-4 text-center p-3">
             <Button
               variant="contained"
@@ -61,15 +52,13 @@ const LoginForm = (props) => (
             </Button>
           </div>
         </div>
-        
       </Form>
     </fieldset>
   </div>
 );
-
-
 const Login = () => {
   const history = useHistory();
+  const dispatch = useStateValue()[1];
   return (
     <div>
       <Formik
@@ -78,13 +67,37 @@ const Login = () => {
           password: "",
         }}
         validationSchema={LoginSchema}
-        onSubmit={(values, actions) => {}}
+        onSubmit={(values, actions) => {
+          service.login(values).then((response) => {
+            if (response.status === 200) {
+              const userInfo = response.data;
+              localStorage.setItem(
+                "auth",
+                JSON.stringify({
+                  token: userInfo.jwt,
+                })
+              );
+              dispatch({
+                type: "LOGIN",
+                item: userInfo,
+              });
+              if (userInfo?.user?.isAdmin) {
+                history.push("/admin");
+              } else {
+                history.push("/user");
+              }
+              toast.success("Login Successful", {
+                position: toast.POSITION.TOP_CENTER,
+              });
+              actions.resetForm();
+            }
+          });
+          actions.setSubmitting(false);
+        }}
         component={LoginForm}
       ></Formik>
       <ToastContainer />
     </div>
   );
 };
-
-
 export default Login;
