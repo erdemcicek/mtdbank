@@ -3,16 +3,19 @@ import AccountInfo from '../account/AccountInfo'
 import { useStateValue } from '../StateProvider'
 import { useHistory } from 'react-router'
 import * as Yup from "yup";
-import { Formik } from 'formik';
+import { Formik, Form, Field } from 'formik';
+import { makeStyles } from '@material-ui/core';
 
 const DepositSchema = Yup.object().shape({
     amount : Yup.string().required("Please provide the amount"),
+    // comment : Yup.string().required("Please provide comment"),
 
 })
 
 const Deposit = () => {
     const [{userInfo}] = useStateValue();
     const history = useHistory();
+    
     return (
         <div>
             {!userInfo && history.push("/login")}
@@ -21,7 +24,10 @@ const Deposit = () => {
                     <AccountInfo />
                     <div>
                         <Formik 
-                            initialValues={{ amount: "", comment: ""}} 
+                            initialValues={{ 
+                                amount: "", 
+                                comment: ""
+                            }} 
                             validationSchema={DepositSchema}
                             onSubmit={(values, actions)=>{
 

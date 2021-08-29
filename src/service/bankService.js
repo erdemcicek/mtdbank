@@ -18,7 +18,7 @@ class BankService {
   }
   deposit(transactionInfo){
     const axiosInstance = axios.create({
-      header: {
+      headers: {
         Authorization: getToken(),
         "Content-Type": "application/json",
       }
@@ -28,12 +28,12 @@ class BankService {
 
   withdraw(transactionInfo){
     const axiosInstance = axios.create({
-      header: {
+      headers: {
         Authorization: getToken(),
         "Content-Type": "application/json",
       }
     })
-    return axiosInstance.post(BASE_URL + "/account/deposit", transactionInfo);
+    return axiosInstance.post(BASE_URL + "/account/withdraw", transactionInfo);
   }
 }
 export default new BankService();
