@@ -40,6 +40,7 @@ const dashboardStyle = {
     margin: "0",
     fontSize: "14px",
     marginTop: "0",
+    marginLeft: "20px",
     paddingTop: "10px",
     marginBottom: "0",
   },
