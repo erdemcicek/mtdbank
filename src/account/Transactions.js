@@ -89,12 +89,7 @@ export default function Transaction(){
                 onChangePage={handleChangePage}
                 onChangeRowsPerPage={handleChangeRowsPerPage} 
 
-           
             />
         </Paper>
     )
-
 }
-
-{/* // /> )} */}
-{/* {rows && rows.length > 0 && ( */}
