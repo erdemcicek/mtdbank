@@ -81,6 +81,7 @@ export default function Transaction(){
                     </TableBody>
                 </Table>
             </TableContainer>
+            {rows && rows.length > 0 && (
             <TablePagination 
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
@@ -88,12 +89,9 @@ export default function Transaction(){
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
+                onChangeRowsPerPage={handleChangeRowsPerPage} 
 
-
-
-
-            />
+            /> )}
         </Paper>
     )
 
