@@ -22,6 +22,8 @@ const DepositSchema = Yup.object().shape({
 
 })
 
+
+
 const DepositForm = (props) => (
     <div className="container">
         <fieldset>
@@ -61,6 +63,7 @@ const DepositForm = (props) => (
         </fieldset>
     </div>
 )
+
 
 const Deposit = () => {
     const [{userInfo}] = useStateValue();
@@ -109,5 +112,7 @@ const Deposit = () => {
         </div>
     )
 }
+
+
 
 export default Deposit

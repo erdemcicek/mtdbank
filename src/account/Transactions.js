@@ -10,7 +10,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 
-
 const columns = [
     {id: "date", label: "Date", minwidth: 170, align: "center"},
     {id: "description", label: "Description", minwidth: 170, align: "center"},
@@ -28,7 +27,6 @@ const useStyles = makeStyles({
         maxHeight: 400,
     }
 })
-
 
 export default function Transaction(){
 
@@ -81,7 +79,7 @@ export default function Transaction(){
                     </TableBody>
                 </Table>
             </TableContainer>
-            {rows && rows.length > 0 && (
+            
             <TablePagination 
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
@@ -91,8 +89,12 @@ export default function Transaction(){
                 onChangePage={handleChangePage}
                 onChangeRowsPerPage={handleChangeRowsPerPage} 
 
-            /> )}
+           
+            />
         </Paper>
     )
 
 }
+
+{/* // /> )} */}
+{/* {rows && rows.length > 0 && ( */}
