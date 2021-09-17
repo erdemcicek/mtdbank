@@ -10,6 +10,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 
+
+
 const columns = [
   { id: "date", label: "Date", minWidth: 170 },
   { id: "description", label: "Description", minWidth: 200 },
@@ -30,6 +32,7 @@ const columns = [
   },
 ];
 
+
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -38,6 +41,7 @@ const useStyles = makeStyles({
     maxHeight: 440,
   },
 });
+
 
 export default function Transactions() {
   const [{ userInfo }] = useStateValue();
