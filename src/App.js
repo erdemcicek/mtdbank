@@ -10,6 +10,7 @@ import Admin from "./admin/Admin";
 import User from "./user/User";
 import Deposit from "./deposit/Deposit";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 function App() {
   return (
     <Router>

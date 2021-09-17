@@ -11,10 +11,11 @@ import "./Deposit.css";
 import service from "../service/bankService";
 import { ToastContainer, toast } from 'react-toastify';
 import Divider from '@material-ui/core/Divider';
-import { dispatch } from 'd3';
 import Transactions from "../account/Transactions"
 
 toast.configure();
+
+const useStyles = makeStyles(styles);
 
 const DepositSchema = Yup.object().shape({
     amount : Yup.string().required("Please provide the amount"),
@@ -66,8 +67,9 @@ const DepositForm = (props) => (
 
 
 const Deposit = () => {
-    const [{userInfo}] = useStateValue();
+    const [{userInfo}, dispatch] = useStateValue();
     const history = useHistory();
+    const classes = useStyles();
 
     return (
         <div>
@@ -106,6 +108,7 @@ const Deposit = () => {
                         <ToastContainer/>
                     </div>
                     <Divider/>
+                    <h1 className={classes.infoText}>Transactions</h1>
                     <Transactions/>
                 </div>
             )}
