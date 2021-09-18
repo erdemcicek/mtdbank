@@ -62,6 +62,7 @@ const WithdrawForm = (props) => (
     </div>
 )
 
+
 const Withdraw = () => {
     const [{userInfo}] = useStateValue();
     const history = useHistory();
@@ -109,5 +110,6 @@ const Withdraw = () => {
         </div>
     )
 }
+
 
 export default Withdraw
