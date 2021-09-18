@@ -2,6 +2,7 @@ import React from "react";
 import { useStateValue } from "../StateProvider";
 import { useHistory } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
+
 // @material-ui/icons
 import AccountBalanceWallet from "@material-ui/icons/AccountBalanceWallet";
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -66,6 +67,7 @@ const User = () => {
     };
     transferArray.push(transferObject);
   });
+  
   const orderedTransferArray = _.orderBy(transferArray, ["amount"]).reverse();
   const barData = [
     {
@@ -92,6 +94,7 @@ const User = () => {
   
   const totalDeposit = _.sum(depositArray);
   const totalWithdraw = _.sum(withdrawalArray);
+  
   return (
     <div>
       {!userInfo && history.push("/login")}
@@ -206,5 +209,6 @@ const User = () => {
     </div>
   );
 };
+
 
 export default User;
