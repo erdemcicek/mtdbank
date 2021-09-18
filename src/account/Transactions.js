@@ -10,8 +10,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 
-
-
 const columns = [
   { id: "date", label: "Date", minWidth: 170 },
   { id: "description", label: "Description", minWidth: 200 },
@@ -32,7 +30,6 @@ const columns = [
   },
 ];
 
-
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -41,7 +38,6 @@ const useStyles = makeStyles({
     maxHeight: 440,
   },
 });
-
 
 export default function Transactions() {
   const [{ userInfo }] = useStateValue();
@@ -76,7 +72,8 @@ export default function Transactions() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {rows && 
+                rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
@@ -97,15 +94,18 @@ export default function Transactions() {
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-      />
+      { rows && (
+            <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+        />
+      )}
+      
     </Paper>
   );
 }

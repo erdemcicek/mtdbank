@@ -9,6 +9,7 @@ import Login from "./login/Login";
 import Admin from "./admin/Admin";
 import User from "./user/User";
 import Deposit from "./deposit/Deposit";
+import Withdraw from "./withdraw/Withdraw";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/admin" component={Admin} />
           <Route path="/user" component={User} />
           <Route path="/deposit" component={Deposit}/>
+          <Route path="/withdrawal" component={Withdraw} />
           <Route path="/" component={Home} />
         </Switch>
         <Footer />
