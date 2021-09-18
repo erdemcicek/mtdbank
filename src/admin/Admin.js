@@ -2,6 +2,7 @@ import React from "react";
 import { useStateValue } from "../StateProvider";
 import { useHistory } from "react-router";
 import { makeStyles } from "@material-ui/core/styles";
+
 // @material-ui/icons
 import AccountBalanceWallet from "@material-ui/icons/AccountBalanceWallet";
 import AccountBalance from "@material-ui/icons/AccountBalance";
@@ -20,6 +21,7 @@ import CardFooter from "../components/Card/CardFooter.js";
 import PlotlyChart from "../chart/PlotlyChart";
 import styles from "../styles/dashboardStyle.js";
 import _ from "lodash";
+
 const useStyles = makeStyles(styles);
 
 const Admin = () => {
@@ -31,6 +33,7 @@ const Admin = () => {
   const depositArray = [];
   const withdrawalArray = [];
   const transferArray = [];
+  
   uniqDates.forEach(function (key) {
     const deposits = _.filter(transactions, function (transaction) {
       return transaction.type === "DEPOSIT" && transaction.date === key;
@@ -84,6 +87,8 @@ const Admin = () => {
       hoverinfo: "percent total+x",
     },
   ];
+  
+  
   return (
     <div>
       {!userInfo && history.push("/login")}
