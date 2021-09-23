@@ -69,7 +69,7 @@ const Login = () => {
         validationSchema={LoginSchema}
         onSubmit={(values, actions) => {
           service.login(values).then((response) => {
-            if (response.status === 200) {
+            if (response && response.status === 200) {
               const userInfo = response.data;
               localStorage.setItem(
                 "auth",
@@ -90,6 +90,10 @@ const Login = () => {
                 position: toast.POSITION.TOP_CENTER,
               });
               actions.resetForm();
+            } else {
+              toast.error("Invalid Credentials, Please Check...", {
+                position: toast.POSITION.TOP_CENTER,
+              });
             }
           });
           actions.setSubmitting(false);

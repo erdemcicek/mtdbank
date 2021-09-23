@@ -83,7 +83,7 @@ const Deposit = () => {
                             validationSchema={DepositSchema}
                             onSubmit={(values, actions)=>{
                                 service.deposit(values).then((response) => {
-                                    if(response.status === 200){
+                                    if(response && response.status === 200){
                                         const user = response.data;
                                         dispatch({
                                             type: "UPDATE",
@@ -93,6 +93,10 @@ const Deposit = () => {
                                             position: toast.POSITION.TOP_CENTER,
                                         });
                                         actions.resetForm();
+                                    } else {
+                                        toast.error("Deposit got failed, Please Check...", {
+                                            position: toast.POSITION.TOP_CENTER,
+                                        });
                                     }
                                     actions.setSubmitting(false);
                                 })

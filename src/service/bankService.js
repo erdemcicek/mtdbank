@@ -35,5 +35,25 @@ class BankService {
     })
     return axiosInstance.post(BASE_URL + "/account/withdraw", transactionInfo);
   }
+
+  transfer(transferInfo){
+    const axiosInstance = axios.create({
+      headers: {
+        Authorization: getToken(),
+        "Content-Type": "application/json",
+      },
+    });
+      return axiosInstance.post(BASE_URL + "/account/transfer", transferInfo);
+  }
+
+  getAllUsers(){
+    const axiosInstance = axios.create({
+      headers: {
+        Authorization: getToken(),
+        "Content-Type": "application/json",
+      },
+    });
+    return axiosInstance.get(BASE_URL + "/user/all");
+  }
 }
 export default new BankService();
