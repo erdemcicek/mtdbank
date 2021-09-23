@@ -78,7 +78,6 @@ const TransferForm = (props) => (
 
                     </div>
 
-                    {/** */}
                     <div className="col-lg-4 text-center p-3">
                         <Field
                             component={FormikTextField}
@@ -160,5 +159,6 @@ const Transfer = () => {
         </div>
     );
 };
+
 
 export default Transfer
